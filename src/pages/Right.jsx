@@ -1,4 +1,4 @@
-import { MainCard } from "../../components";
+import { MainCard } from "../components/cards/MainCard";
 
 export const Right = () => {
   return (

@@ -1,7 +1,7 @@
-import { Left } from "../Left";
-import { Right } from "../Right";
+import { Left } from "./Left";
+import { Right } from "./Right";
 
-export const Home = () => {
+const SendItem = () => {
   return (
     <div className=" flex flex-wrap justify-between items-cente">
       <div>
@@ -13,3 +13,4 @@ export const Home = () => {
     </div>
   );
 };
+export default SendItem

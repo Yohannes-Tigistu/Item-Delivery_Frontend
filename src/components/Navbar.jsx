@@ -28,14 +28,17 @@ const Navbar = () => {
     // Navigate to the send item page
     navigate('../pages/SendItem');
   };
-
-
+  const handleAbout= () => {
+    // Navigate to the about page
+    navigate('../pages/About');
+  };
+  
   const handleLogin = () => {
     // Navigate to the login page
     navigate('../pages/Login');
   };
-
-  const pages = ['Drive & Deliver', 'Send an item'];
+ 
+  const pages = ['Drive & Deliver', 'Send an item','About'];
 
   return (
     <AppBar position="static">
@@ -56,9 +59,11 @@ const Navbar = () => {
             <img src={Logo} alt="Logo" style={{ height: '40px' }} />
             </Link>
           </Typography>
+
+
          <Box sx={{ display: 'flex', marginLeft: 'auto' }}>
-            {pages.map((page, index) => (
-              <Button key={index} color="inherit" onClick={handleSendItem}>
+             {pages.map((page, index) => (
+              <Button key={index} color="inherit" onClick={page === 'About' ? handleAbout : handleSendItem}>
                 {page}
               </Button>
             ))}

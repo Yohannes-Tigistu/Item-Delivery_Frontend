@@ -1,0 +1,165 @@
+.container {
+    position: relative;
+  }
+  .ellipse {
+    width: 77px;
+    height: 76px;
+    position: absolute;
+    border-radius: 50%;
+  }
+  
+  .text2 {
+    width: 12px;
+    height: 26px;
+    top: 25px;
+    left: 30px;
+    gap: 0px;
+    opacity: 0px;
+    font-family: Anek Latin;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 26.4px;
+    letter-spacing: 0.07em;
+    text-align: left;
+    color: #000000;    
+    position: absolute;
+  }
+  .text1{
+    width: 9px;
+    height: 26px;
+    top: 25px;
+    left: 30px;
+    gap: 0px;
+    opacity: 0px;
+    font-family: Anek Latin;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 26.4px;
+    letter-spacing: 0.07em;
+    text-align: left;
+    color: #ffffff;
+    position: absolute;
+
+  }
+  
+  .line {
+    width: 274px;
+    height: 0px;
+    top: 200px;
+    left: 586px;
+    gap: 0px;
+    opacity: 0px;
+    angle: -0.21 deg;
+    border: 1px solid #000000;
+    position: absolute;
+  }
+  
+  #ellipse1 {
+    width: 77px;
+    height: 76px;
+    top: 163px;
+    left: 509px;
+    background-color: #CC2936;
+  }
+  
+  #ellipse2 {
+    width: 77px;
+    height: 76px;
+    top: 163px;
+    left: 863px;
+    background-color: #EBE6EF;
+    ;
+
+  }
+  
+  .Box {
+    width: 1102px;
+    height: 655px;
+    top: 282px;
+    left: 168px;
+    background-color: #d8dce0;
+    position: absolute;
+    max-width: 1102px; 
+
+  }
+  
+  .Box img {
+    width: 232px;
+    height: 332px;
+    top: 90px;
+    left: 121px;
+    position: absolute;
+
+  }
+  
+  .Name {
+    width: 311px;
+    height: 53px;
+    top: 90px;
+    left: 550px;
+    position: absolute;
+  }
+  
+  .info{
+    top: 140px;
+    left: 480px;
+    position: absolute;
+  }
+  .number{
+    font-family: Anek Latin;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 17.6px;
+    letter-spacing: 0.07em;
+    left: 91px;
+    top:0px;
+    position: absolute; 
+}
+  
+ 
+  #phone{
+    width: 16px;
+    height: 16px;
+    top: 18px;
+    left: 68px;
+    opacity: 0px;
+    position: absolute; 
+
+  }
+    
+   
+  .order {
+    width: 193px;
+    height: 26px;
+    top: 400px;
+    left: 450px;
+    color: red;
+    position: absolute;
+
+  }
+  
+  #arr {
+    width: 32px;
+    height: 49px;
+    top: 403px;
+    left: 590px;
+    animation: arrowAnimation 1s ease-out forwards;
+    position: absolute;
+
+  }
+  
+  @keyframes arrowAnimation {
+    0% {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  @media (max-width: 768px) {
+    .Name {
+      font-size: 20px;
+    }
+  }

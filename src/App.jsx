@@ -10,7 +10,7 @@ import SendItem from './pages/SendItem';
 import Footer from './components/Footer';
 import { Signup } from './pages/Signup';
 import About from './pages/About';
-
+import Details from './pages/Details';
 function App() {
   const theme = createTheme({
     palette: {
@@ -32,6 +32,7 @@ function App() {
           <Route path='/pages/Signup' element={<Signup />} />
           <Route path='/pages/SendItem' element={<SendItem />} />
           <Route path='/pages/About'element={<About/>}/>
+          <Route path='/pages/Details'element={<Details/>}/>
         </Routes>
         <Footer/>
       </AuthProvider>

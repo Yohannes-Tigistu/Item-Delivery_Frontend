@@ -11,6 +11,7 @@ import Footer from './components/Footer';
 import { Signup } from './pages/Signup';
 import About from './pages/About';
 import Details from './pages/Details';
+import OrderForm from './pages/OrderForm';
 function App() {
   const theme = createTheme({
     palette: {

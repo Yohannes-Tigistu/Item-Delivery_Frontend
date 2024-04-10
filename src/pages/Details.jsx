@@ -1,8 +1,8 @@
 import React from 'react';
 import './Details.css';
-import driver from '../images/driver.png'; 
-import right_arrow from '../images/Right_Arrow.png';
-import Phone from '../images/Phone_icon.png';
+import driver from '../components/images/driver.png'; 
+import right_arrow from '../components/images/Right_Arrow.png';
+import Phone from '../components/images/Phone_icon.png';
 
 const Details = () => {
   return (

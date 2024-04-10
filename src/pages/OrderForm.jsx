@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './OrderForm.css'; // Import CSS file for styling
 
 function OrderForm() {
   const [formData, setFormData] = useState({
@@ -22,22 +21,19 @@ function OrderForm() {
     console.log('Form Data:', formData);
     // Add logic to handle form submission (e.g., send data to server)
   };
-<hr className="separator" />
 
   return (
-    <div className="container">
-      <div className="order-form">
-        <h1 className="title">Create Your Order</h1>
-        <form onSubmit={handleSubmit} className="form">
-          <div className="form-row">
-            <div className="form-column">
-              <label htmlFor="category" className="label">
-                Category
-              </label>
+    <div className="flex justify-center items-center min-h-screen">
+    <div className="bg-white rounded-md shadow-md p-12" style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)', marginRight: '20px' }}>
+      <h1 className="text-center text-lg font-bold mb-8">Create Your Order</h1>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+          <div className="flex gap-4">
+            <div className="flex-1">
+              <label htmlFor="category" className="font-bold">Category</label>
               <select
                 id="category"
                 name="category"
-                className="input"
+                className="block w-full py-2 px-4 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
                 onChange={handleChange}
                 value={formData.category}
                 required
@@ -46,86 +42,72 @@ function OrderForm() {
                 {/* Add more category options here */}
               </select>
             </div>
-            <div className="form-column">
-              <label htmlFor="upload-image" className="label">
-                Upload Image
-              </label>
+            <div className="flex-1">
+              <label htmlFor="upload-image" className="font-bold">Upload Image</label>
               <input
                 id="upload-image"
                 name="uploadImage"
                 type="file"
-                className="input"
+                className="block w-full py-2 px-4 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
                 onChange={handleChange}
               />
             </div>
           </div>
-          <div className="form-row">
-            <div className="form-column">
-              <label htmlFor="weight" className="label">
-                Weight
-              </label>
+          <div className="flex gap-4">
+            <div className="flex-1">
+              <label htmlFor="weight" className="font-bold">Weight</label>
               <input
                 id="weight"
                 name="weight"
                 type="number"
-                className="input"
+                className="block w-full py-2 px-4 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
                 onChange={handleChange}
                 value={formData.weight}
                 required
               />
             </div>
-            <div className="form-column">
-              <label htmlFor="receiver-phone" className="label">
-                Receiver Phone
-              </label>
+            <div className="flex-1">
+              <label htmlFor="receiver-phone" className="font-bold">Receiver Phone</label>
               <input
                 id="receiver-phone"
                 name="receiverPhone"
                 type="tel"
-                className="input"
+                className="block w-full py-2 px-4 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
                 value={formData.receiverPhone}
                 onChange={handleChange}
                 required
               />
             </div>
           </div>
-          <div className="form-row">
-            <div className="form-column">
-              <label htmlFor="receiver-name" className="label">
-                Receiver Name
-              </label>
+          <div className="flex gap-4">
+            <div className="flex-1">
+              <label htmlFor="receiver-name" className="font-bold">Receiver Name</label>
               <input
                 id="receiver-name"
                 name="receiverName"
                 type="text"
-                className="input"
+                className="block w-full py-2 px-4 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
                 value={formData.receiverName}
                 onChange={handleChange}
                 required
               />
             </div>
-            <div className="form-column">
-              {/* Empty div to maintain column layout */}
-            </div>
+            <div className="flex-1"></div>
           </div>
-          <div className="form-row">
-            <label htmlFor="description" className="label">
-              Description
-            </label>
+          <div>
+            <label htmlFor="description" className="font-bold">Description</label>
             <textarea
               id="description"
               name="description"
               rows="4"
-              className="input"
+              className="block w-full py-2 px-4 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
               value={formData.description}
               onChange={handleChange}
               required
             ></textarea>
           </div>
-          <div className="form-row">
-            <button type="submit" className="submit-btn">
-              Submit
-            </button>
+          <div>
+            <button type="submit" className="block w-full py-2 px-4 bg-blue-500 text-white font-bold rounded-md hover:bg-blue-600">Submit</button>
           </div>
         </form>
       </div>

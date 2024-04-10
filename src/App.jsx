@@ -34,6 +34,7 @@ function App() {
           <Route path='/pages/SendItem' element={<SendItem />} />
           <Route path='/pages/About'element={<About/>}/>
           <Route path='/pages/Details'element={<Details/>}/>
+          <Route path='/pages/OrderForm' element={<OrderForm />} />
         </Routes>
         <Footer/>
       </AuthProvider>

@@ -1,7 +1,7 @@
 import React from 'react';
 import './About.css'; 
-import logo from "../components/images/delivery_car.jpg";
-import deliveryImage from "../components/images/delivery_guy.jpg";
+import logo from "../components/images/Delivery.gif";
+import deliveryImage from "../components/images/Team goals.gif";
 import defaultImage from "../components/images/defaultImage.jpg";
 
 

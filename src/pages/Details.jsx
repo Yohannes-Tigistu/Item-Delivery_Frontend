@@ -1,7 +1,7 @@
 import React from 'react';
 import './Details.css';
 import { Link } from 'react-router-dom';
-import driver from '../components/images/driver.png'; 
+import driver from '../components/images/driver.gif'; 
 import right_arrow from '../components/images/Right_Arrow.png';
 import Phone from '../components/images/Phone_icon.png';
 import OrderForm from './OrderForm'; 
@@ -51,8 +51,6 @@ const Details = () => {
           </ul>
         </div>
         <div className="order-container">
-          <div className='order'>Place Your Order</div>
-          <img src={right_arrow} alt="Arrow" id="arr" />
           <Link to="/OrderForm" className='order'>Place Your Order</Link>
           <img src={right_arrow} alt="Arrow" id="arr" />
         </div>

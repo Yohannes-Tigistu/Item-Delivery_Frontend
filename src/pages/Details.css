@@ -57,11 +57,11 @@
   border-radius: 10px;
   border: 1px solid #000000;
   background: #08415C24;
-  transition: box-shadow 0.3s; /* Add transition for smooth effect */
+  transition: box-shadow 0.3s; 
   
 }
 .Box:hover {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add box shadow on hover */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
 }
 .contact-info,
 .vehicle-info,
@@ -79,6 +79,8 @@
 .Name {
   margin-top: 20px;
   text-align: center;
+  font-size: large;
+  font-weight: bold;
 }
 
 .info {
@@ -172,18 +174,13 @@
   border-radius: 10px;
   border: 1px solid #000000;
   background: #08415C24;
-  transition: box-shadow 0.3s; /* Add transition for smooth effect */
+  transition: box-shadow 0.3s; 
   
 }
 .Box:hover {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add box shadow on hover */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
 }
-.contact-info,
-.vehicle-info,
-.delivery,
-.delivery-history {
-  font-weight: 450;
-}
+
 
 .vehicle-info,
 .delivery,

@@ -1,165 +1,282 @@
 .container {
-    position: relative;
-  }
-  .ellipse {
-    width: 77px;
-    height: 76px;
-    position: absolute;
-    border-radius: 50%;
-  }
-  
-  .text2 {
-    width: 12px;
-    height: 26px;
-    top: 25px;
-    left: 30px;
-    gap: 0px;
-    opacity: 0px;
-    font-family: Anek Latin;
-    font-size: 24px;
-    font-weight: 500;
-    line-height: 26.4px;
-    letter-spacing: 0.07em;
-    text-align: left;
-    color: #000000;    
-    position: absolute;
-  }
-  .text1{
-    width: 9px;
-    height: 26px;
-    top: 25px;
-    left: 30px;
-    gap: 0px;
-    opacity: 0px;
-    font-family: Anek Latin;
-    font-size: 24px;
-    font-weight: 500;
-    line-height: 26.4px;
-    letter-spacing: 0.07em;
-    text-align: left;
-    color: #ffffff;
-    position: absolute;
-
-  }
-  
-  .line {
-    width: 274px;
-    height: 0px;
-    top: 200px;
-    left: 586px;
-    gap: 0px;
-    opacity: 0px;
-    angle: -0.21 deg;
-    border: 1px solid #000000;
-    position: absolute;
-  }
-  
-  #ellipse1 {
-    width: 77px;
-    height: 76px;
-    top: 163px;
-    left: 509px;
-    background-color: #CC2936;
-  }
-  
-  #ellipse2 {
-    width: 77px;
-    height: 76px;
-    top: 163px;
-    left: 863px;
-    background-color: #EBE6EF;
-    ;
-
-  }
-  
-  .Box {
-    width: 1102px;
-    height: 655px;
-    top: 282px;
-    left: 168px;
-    background-color: #d8dce0;
-    position: absolute;
-    max-width: 1102px; 
-
-  }
-  
-  .Box img {
-    width: 232px;
-    height: 332px;
-    top: 90px;
-    left: 121px;
-    position: absolute;
-
-  }
-  
-  .Name {
-    width: 311px;
-    height: 53px;
-    top: 90px;
-    left: 550px;
-    position: absolute;
-  }
-  
-  .info{
-    top: 140px;
-    left: 480px;
-    position: absolute;
-  }
-  .number{
-    font-family: Anek Latin;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 17.6px;
-    letter-spacing: 0.07em;
-    left: 91px;
-    top:0px;
-    position: absolute; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
 }
-  
- 
-  #phone{
-    width: 16px;
-    height: 16px;
-    top: 18px;
-    left: 68px;
-    opacity: 0px;
-    position: absolute; 
 
-  }
-    
-   
-  .order {
-    width: 193px;
-    height: 26px;
-    top: 400px;
-    left: 450px;
-    color: red;
-    position: absolute;
+.ellipse-container {
+  display: flex;
+  align-items: center;
+}
+.email,.vehicle-info{
+  margin-top: 10px;
+}
 
-  }
-  
-  #arr {
-    width: 32px;
-    height: 49px;
-    top: 403px;
-    left: 590px;
-    animation: arrowAnimation 1s ease-out forwards;
-    position: absolute;
+.ellipse {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
+}
 
-  }
+.ellipse1 {
+  background-color: #CC2936;
+}
+
+.ellipse2 {
+  background-color: #EBE6EF; 
+}
+
+.text1 {
+  color: white;
+}
+
+.line {
+  width: 200px; 
+  height: 2px;
+  background-color: #000000;
+}
+
+.Box img{
+  height: 200px;
+  width: fit-content;
+  align-self: center
+}
+
+.Box {
+  width: 90%; 
+  max-width: 600px; 
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px; 
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #000000;
+  background: #08415C24;
+  transition: box-shadow 0.3s; /* Add transition for smooth effect */
   
-  @keyframes arrowAnimation {
-    0% {
-      opacity: 0;
-      transform: translateX(50px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(0);
-    }
+}
+.Box:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add box shadow on hover */
+}
+.contact-info,
+.vehicle-info,
+.delivery,
+.delivery-history {
+  font-weight: 450;
+}
+
+.vehicle-info,
+.delivery,
+.delivery-history {
+  margin-top: 10px; 
+}
+
+.Name {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.info {
+  margin-top: 10px;
+  margin-left: 15px;
+}
+
+.contact-info {
+  display: flex;
+  margin-left: 115px;
+  align-items: center;
+}
+
+.vehicle-info, .delivery-status {
+  margin-top: 0px; 
+  padding-left: 130px;
+}
+#phone {
+  width: 17px;
+  height: 18px;
+  margin-right: 5px;
+}
+
+.delivery-history {
+  margin-top: 10px;
+  margin-left: 130px;
+}
+
+.order-container {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  padding-left: 15px;
+  justify-content: center; 
+}.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.ellipse-container {
+  display: flex;
+  align-items: center;
+}
+.email,.vehicle-info{
+  margin-top: 10px;
+}
+
+.ellipse {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
+}
+
+.ellipse1 {
+  background-color: #CC2936;
+}
+
+.ellipse2 {
+  background-color: #EBE6EF; 
+}
+
+.text1 {
+  color: white;
+}
+
+.line {
+  width: 200px; 
+  height: 2px;
+  background-color: #000000;
+}
+
+.Box img{
+  height: 200px;
+  width: fit-content;
+  align-self: center
+}
+
+.Box {
+  width: 90%; 
+  max-width: 600px; 
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px; 
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #000000;
+  background: #08415C24;
+  transition: box-shadow 0.3s; /* Add transition for smooth effect */
+  
+}
+.Box:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add box shadow on hover */
+}
+.contact-info,
+.vehicle-info,
+.delivery,
+.delivery-history {
+  font-weight: 450;
+}
+
+.vehicle-info,
+.delivery,
+.delivery-history {
+  margin-top: 10px; 
+}
+
+.Name {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.info {
+  margin-top: 10px;
+  margin-left: 15px;
+}
+
+.contact-info {
+  display: flex;
+  margin-left: 115px;
+  align-items: center;
+}
+
+.vehicle-info, .delivery-status {
+  margin-top: 0px; 
+  padding-left: 130px;
+}
+#phone {
+  width: 17px;
+  height: 18px;
+  margin-right: 5px;
+}
+
+.delivery-history {
+  margin-top: 10px;
+  margin-left: 130px;
+}
+
+.order-container {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  padding-left: 15px;
+  justify-content: center; 
+}
+.order {
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 5px;
+  margin-left: 10px;
+}
+
+#arr {
+  width: 25px;
+  height: 35px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .Box {
+    width: 90%;
   }
-  @media (max-width: 768px) {
-    .Name {
-      font-size: 20px;
-    }
+  .contact,
+  .vehicle-info,
+  .delivery,
+  .delivery-history {
+    display: flex; 
   }
+}
+.order {
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 5px;
+  margin-left: 10px;
+}
+
+#arr {
+  width: 25px;
+  height: 35px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+#arr:hover {
+  transform: scale(1.1); 
+}
+@media screen and (max-width: 768px) {
+  .Box {
+    width: 90%;
+  }
+  .contact,
+  .vehicle-info,
+  .delivery,
+  .delivery-history {
+    display: flex; 
+  }
+}

@@ -51,8 +51,7 @@ const Details = () => {
           </ul>
         </div>
         <div className="order-container">
-          <Link to="/OrderForm" className='order'>Place Your Order</Link>
-          <img src={right_arrow} alt="Arrow" id="arr" />
+        <Link to="../pages/OrderForm" className='order'>Place Your Order</Link>          <img src={right_arrow} alt="Arrow" id="arr" />
         </div>
       </div>
     </div>

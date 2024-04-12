@@ -1,115 +1,145 @@
-import React, { useState } from 'react';
-import { Link , useNavigate } from 'react-router-dom';
-import Button from '@mui/material/Button';
-import Logo from './images/logo.png';
-import AppBar from '@mui/material/AppBar';
-import Container from '@mui/material/Container';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import MenuIcon from '@mui/icons-material/Menu';
-import { Box } from '@mui/system';
+import * as React from "react";
+import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import CssBaseline from "@mui/material/CssBaseline";
+import Divider from "@mui/material/Divider";
+import Drawer from "@mui/material/Drawer";
+import IconButton from "@mui/material/IconButton";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemText from "@mui/material/ListItemText";
+import MenuIcon from "@mui/icons-material/Menu";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import PersonIcon from "@mui/icons-material/Person";
+import { Link } from "react-router-dom";
+const drawerWidth = 250;
+const navItems = ["Home", "Posts", "About", "Contact" ];
 
-const Navbar = () => {
-  const [anchorElNav, setAnchorElNav] = useState(null);
- 
-  const navigate = useNavigate();
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-  const handleSendItem = () => {
-    // Navigate to the send item page
-    navigate('../pages/SendItem');
-  };
-  const handleAbout= () => {
-    // Navigate to the about page
-    navigate('../pages/About');
+function Navbar(props) {
+  const navigate= useNavigate()
+  const { window } = props;
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+   
+  const loginhandler=()=>{
+    navigate("pages/Login")
+  }
+  const Abouthandler = () => {
+    navigate("pages/About");
+  };const Homehandler = () => {
+    navigate("pages/Home");
+  };const Postshandler = () => {
+    navigate("pages/Posts");
   };
   
-  const handleLogin = () => {
-    // Navigate to the login page
-    navigate('../pages/Login');
+  const handleDrawerToggle = () => {
+    setMobileOpen((prevState) => !prevState);
   };
- 
-  const pages = ['Drive & Deliver', 'Send an item','About'];
+  const drawer = (
+    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
+      <Typography variant="h6" sx={{ my: 2, ml: 5 }}>
+       <img src="" alt="logo" />
+      </Typography>
+      <Divider />
+      <List>
+        <ListItem disablePadding>
+          <ListItemButton sx={{ textAlign: "center" }}>
+            <ListItemText primary={"Home"} onClick={Homehandler} />
+          </ListItemButton>
+        </ListItem>
+        <ListItem disablePadding>
+          <ListItemButton sx={{ textAlign: "center" }}>
+            <ListItemText primary={"Posts"} onClick={Postshandler} />
+          </ListItemButton>
+        </ListItem>
+        <ListItem disablePadding>
+          <ListItemButton sx={{ textAlign: "center" }}>
+            <ListItemText primary={"About"} onClick={Abouthandler} />
+          </ListItemButton>
+        </ListItem>
+        <ListItem disablePadding>
+          <ListItemButton sx={{ textAlign: "center" }}>
+          
+            <ListItemText primary={"Login"} onClick={loginhandler} />
+          </ListItemButton>
+        </ListItem>
+      </List>
+    </Box>
+  );
+
+  const container =
+    window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <AppBar position="static">
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <IconButton
-            size="large"
-            aria-label="menu"
-            aria-controls="menu-appbar"
-            aria-haspopup="true"
-            onClick={handleOpenNavMenu}
-            color="inherit"
+    <Box sx={{ display: "flex", marginBottom: "100px" }}>
+      <AppBar component="nav" color="default">
+        <Toolbar>
+          <Typography
+            variant="h6"
+            component="div"
+            sx={{ flexGrow: 1, display: { sm: "block" } }}
           >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            <Link to='/'>
-            <img src={Logo} alt="Logo" style={{ height: '40px' }} />
-            </Link>
+            <img src="" alt="logo" />
           </Typography>
-
-
-         <Box sx={{ display: 'flex', marginLeft: 'auto' }}>
-             {pages.map((page, index) => (
-              <Button key={index} color="inherit" onClick={page === 'About' ? handleAbout : handleSendItem}>
-                {page}
-              </Button>
-            ))}
-          </Box>
-          <Menu
-            id="menu-appbar"
-            anchorEl={anchorElNav}
-            open={Boolean(anchorElNav)}
-            onClose={handleCloseNavMenu}
-            anchorOrigin={{
-              vertical: 'top',
-              horizontal: 'right',
-            }}
-            transformOrigin={{
-              vertical: 'top',
-              horizontal: 'right',
-            }}
+          <Box sx={{ display: { xs: "none", sm: "none", md: "block" }, mx: 2 }}>
+            <Button onClick={Homehandler} sx={{ color: "#CC2936", mx: 1 }}>
+              Home
+            </Button>
+            <Button onClick={Postshandler} sx={{ color: "#CC2936", mx: 1 }}>
+              Posts
+            </Button>
+            <Button onClick={Abouthandler} sx={{ color: "#CC2936", mx: 1 }}>
+              About
+            </Button>
+            <Button
+              variant="outlined"
+              onClick={loginhandler}
+              sx={{ color: "#CC2936" }}
+            >
+              Login
+            </Button>
+            <Link to={"/pages/Profile"}>
+              <PersonIcon />
+            </Link>
+          </Box>{" "}
+          <IconButton
+            aria-label="open drawer"
+            edge="start"
+            onClick={handleDrawerToggle}
+            sx={{ mr: 2, display: { md: "none" }, color: "#CC2936" }}
           >
-            <MenuItem onClick={handleCloseNavMenu}>Profile</MenuItem>
-            <MenuItem onClick={handleCloseNavMenu}>My account</MenuItem>
-          </Menu>
-          <Button
-            aria-controls="login-menu"
-            aria-haspopup="true"
-            variant="outlined"
-            color="inherit"
-            onClick={handleLogin}
-            sx={{
-              textTransform: 'none',
-              padding: '8px 16px',
-              borderRadius: '20px',
-              background: 'none',
-              border: '1px solid #fff',
-              transition: 'background-color 0.3s ease',
-              '&:hover': {
-                backgroundColor: '#fff',
-                color: '#27296d',
-              },
-            }}
-          >
-            Login
-          </Button>
+            <MenuIcon color="#CC2936" />
+          </IconButton>
         </Toolbar>
-      </Container>
-    </AppBar>
+      </AppBar>
+      <nav>
+        <Drawer // mobile resposiveness
+          container={container}
+          variant="temporary"
+          open={mobileOpen}
+          onClose={handleDrawerToggle}
+          ModalProps={{
+            keepMounted: true,
+          }}
+          sx={{
+            display: {},
+            "& .MuiDrawer-paper": {
+              boxSizing: "border-box",
+              width: drawerWidth,
+            },
+          }}
+        >
+          {drawer}
+        </Drawer>
+      </nav>
+    </Box>
   );
-};
+}
+
 
 export default Navbar;

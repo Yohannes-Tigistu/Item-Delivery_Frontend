@@ -6,7 +6,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 
 const Footer = () => {
   return (
-    <footer className="bg-white dark:bg-gray-900">
+    <div className="bg-white dark:bg-gray-900 mt-24 ">
       <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <Grid container justifyContent="space-between" alignItems="center">
           <Grid item xs={12} md={4}>
@@ -52,7 +52,7 @@ const Footer = () => {
         </Grid>
         <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
         <Grid container justifyContent="space-between" alignItems="center">
-          <Typography variant="body2" className="text-sm text-gray-500 sm:text-center dark:text-gray-400">&copy; {new Date().getFullYear()} <Link href="https://flowbite.com/" className="hover:underline">Flowbite™</Link>. All Rights Reserved.</Typography>
+          <Typography variant="body2" className="text-sm text-gray-500 sm:text-center dark:text-gray-400">&copy; {new Date().getFullYear() } <Link href="https://flowbite.com/" className="hover:underline">Flowbite™</Link>. All Rights Reserved.</Typography>
           <div className="flex mt-4 sm:justify-center sm:mt-0">
             <Link href="#" className="text-gray-500 hover:text-gray-900 dark:hover:text-white"><InstagramIcon /></Link>
             <Link href="#" className="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"><TwitterIcon /></Link>
@@ -60,7 +60,7 @@ const Footer = () => {
           </div>
         </Grid>
       </div>
-    </footer>
+    </div>
   );
 };
 

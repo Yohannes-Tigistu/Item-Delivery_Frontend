@@ -75,10 +75,10 @@
   margin-bottom: 5px;
 }
 
-img:hover {
+/*img:hover {
   transform: scaleX(0.9);
   object-fit: cover;
-}
+}*/
 
 #team-members-container {
   background-color:#08415C;

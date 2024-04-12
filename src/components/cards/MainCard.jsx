@@ -19,7 +19,7 @@ export const MainCard = () => {
       className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:text-white dark:bg-gray-800 dark:border-gray-700"
       onMouseLeave={handleMouseLeave}
     >
-      <div className="flex flex-wrap gap-2 items-center">
+      <div className="flex flex-wrap gap-2 items-center ">
         <img
           src={logo}
           onMouseEnter={handleMouseEnter}

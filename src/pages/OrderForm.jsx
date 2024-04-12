@@ -23,11 +23,11 @@ function OrderForm() {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen">
-    <div className="bg-white rounded-md shadow-md p-12" style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)', marginRight: '20px' }}>
-      <h1 className="text-center text-lg font-bold mb-8">Create Your Order</h1>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-          <div className="flex gap-4">
+    <div className="flex justify-center items-center min-h-screen" style={{ fontFamily: 'Poppins, sans-serif' }}>
+      <div className="bg-white rounded-md shadow-md p-4 md:p-12" style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)', marginRight: '20px' }}>
+        <h1 className="text-center text-lg font-bold mb-8">Create Your Order</h1>
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+          <div className="flex flex-col md:flex-row gap-4">
             <div className="flex-1">
               <label htmlFor="category" className="font-bold">Category</label>
               <select
@@ -53,7 +53,7 @@ function OrderForm() {
               />
             </div>
           </div>
-          <div className="flex gap-4">
+          <div className="flex flex-col md:flex-row gap-4">
             <div className="flex-1">
               <label htmlFor="weight" className="font-bold">Weight</label>
               <input
@@ -79,7 +79,7 @@ function OrderForm() {
               />
             </div>
           </div>
-          <div className="flex gap-4">
+          <div className="flex flex-col md:flex-row gap-4">
             <div className="flex-1">
               <label htmlFor="receiver-name" className="font-bold">Receiver Name</label>
               <input

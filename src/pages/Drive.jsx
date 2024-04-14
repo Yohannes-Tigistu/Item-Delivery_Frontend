@@ -35,7 +35,7 @@ const Drive = () => {
             elevation={0}
             style={{
               padding: 16,
-              color: '#27296d',
+              color: '#bc2525',
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'center',
@@ -46,12 +46,17 @@ const Drive = () => {
             <Typography variant="h2" style={{ fontWeight: 'bold', marginTop: '40px',color:'#bc2525' }}>
               Deliver while you move, earn as you go!
             </Typography>
-            <Typography variant="body1" style={{ marginTop: '16px' ,color:"#08415C"}}>
+
+
+
+            <Typography variant="body1" style={{ marginTop: '16px',color:'#08415C' }}>
               Turn every step into a delivery opportunity and make money on the move.
             </Typography>
             <Button
               onClick={handleDriverSignup}
-              style={{ marginTop: '40px', backgroundColor: '#08415C', color: '#F1BF98' }}
+            
+              style={{ marginTop: '40px', backgroundColor: '#08415c', color: '#F1BF98' }}
+
               variant="contained"
             >
               Register As a Driver Now!
@@ -62,6 +67,7 @@ const Drive = () => {
           <img src={Image2} alt="Your Image" style={{ maxWidth: '100%', height: 'auto' }} />
         </Grid>
       </Grid>
+
       <div className='mt-5 lg:mt-20'>
             <div className='flex flex-col justify-center items-center gap-12 lg:gap-24 lg:px-[9.4vw]'>
               <div className='relative flex w-max'>
@@ -102,6 +108,8 @@ const Drive = () => {
                 <img src={carIcon} alt="Car Icon" className="w-16 h-20 absolute left-32 right-0 top-5 transform -translate-y-1/2" />
               </button>
             </div>
+
+     
       </div>
       
     </div>

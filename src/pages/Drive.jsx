@@ -18,7 +18,7 @@ const Drive = () => {
             elevation={0}
             style={{
               padding: 16,
-              color: '#27296d',
+              color: '#bc2525',
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'center',
@@ -29,12 +29,12 @@ const Drive = () => {
             <Typography variant="h2" style={{ fontWeight: 'bold', marginTop: '40px' }}>
               Deliver while you move, earn as you go!
             </Typography>
-            <Typography variant="body1" style={{ marginTop: '16px' }}>
+            <Typography variant="body1" style={{ marginTop: '16px',color:'#08415C' }}>
               Turn every step into a delivery opportunity and make money on the move.
             </Typography>
             <Button
               onClick={handleDriverSignup}
-              style={{ marginTop: '40px', backgroundColor: '#27296d', color: '#fff' }}
+              style={{ marginTop: '40px', backgroundColor: '#08415c', color: '#F1BF98' }}
               variant="contained"
             >
               Register As a Driver Now!
@@ -45,10 +45,10 @@ const Drive = () => {
           <img src={Image2} alt="Your Image" style={{ maxWidth: '100%', height: 'auto' }} />
         </Grid>
       </Grid>
-      <div className="flex flex-col items-center justify-center h-screen">
-        <div className="bg-white rounded-lg shadow-md p-8 w-full">
-          <h2 className="text-3xl text-gray-800 font-bold mb-4">Drive with Uber</h2>
-          <p className="text-gray-600 mb-8">Make money on your own terms. Set your own schedule and drive when it's convenient for you.</p>
+      <div className="flex flex-col items-center justify-center h-screen" style={{backgroundColor: '#08415C',height:'50vh'}}>
+        <div >
+          <h2 className="font-bold mb-4" style={{color:'#F1BF98',marginLeft:'500px',fontSize:'40px'}}>Drive with Lijeger</h2>
+          <p className=" mb-8" style={{color:'#bc2525',marginLeft:'560px',fontSize:'15px'}}>Make money on your own terms</p>
           <div className="flex items-center mb-8">
             <img src="https://cdn-icons-png.flaticon.com/512/270/270795.png" alt="Money" className="w-8 h-8 mr-4" />
             <p className="text-gray-800 font-bold">Make money</p>

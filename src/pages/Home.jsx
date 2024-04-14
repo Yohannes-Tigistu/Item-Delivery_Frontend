@@ -14,7 +14,7 @@ export const Home = () => {
 
   const handleSendItem = () => {
     // Navigate to the send item page
-    navigate('../pages/SendItem');
+    navigate('../pages/Posts');
   };
    const handleDrive = () => {
     // Navigate to the send item page

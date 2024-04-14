@@ -17,6 +17,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import PersonIcon from "@mui/icons-material/Person";
 import { Link } from "react-router-dom";
+import logonew from '../components/images/logonew.png'
 const drawerWidth = 250;
 const navItems = ["Home", "Posts", "About", "Contact" ];
 
@@ -29,11 +30,14 @@ function Navbar(props) {
   const loginhandler=()=>{
     navigate("pages/Login")
   }
+  const handleHome =()=>{
+    navigate('/pages/Home')
+  }
   const Abouthandler = () => {
     navigate("pages/About");
-  };const Homehandler = () => {
-    navigate("pages/Home");
-  };const Postshandler = () => {
+  };
+
+  const Postshandler = () => {
     navigate("pages/Posts");
   };
   
@@ -49,7 +53,7 @@ function Navbar(props) {
       <List>
         <ListItem disablePadding>
           <ListItemButton sx={{ textAlign: "center" }}>
-            <ListItemText primary={"Home"} onClick={Homehandler} />
+            <ListItemText primary={"Home"} onClick={handleHome} />
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
@@ -76,30 +80,35 @@ function Navbar(props) {
     window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: "flex", marginBottom: "100px" }}>
-      <AppBar component="nav" color="default">
+    <Box sx={{ display: "flex", marginBottom: "100px" }} >
+      <AppBar component="nav" color="default" style={{    backgroundColor: 'rgba(8, 65, 92, 0.8)', // Background color with transparency
+    backdropFilter: 'blur(10px)', // Apply blur effect
+    WebkitBackdropFilter: 'blur(10px)', // For older browsers
+}}>
         <Toolbar>
           <Typography
             variant="h6"
             component="div"
             sx={{ flexGrow: 1, display: { sm: "block" } }}
           >
-            <img src="" alt="logo" />
+            <img src={logonew} alt="logo" onClick={handleHome} style={{ width: "50px", height: "auto" }} />
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "none", md: "block" }, mx: 2 }}>
-            <Button onClick={Homehandler} sx={{ color: "#CC2936", mx: 1 }}>
-              Home
-            </Button>
-            <Button onClick={Postshandler} sx={{ color: "#CC2936", mx: 1 }}>
+           
+            <Button onClick={Postshandler} sx={{ color: "#F1BF98", mx: 1 , fontWeight: 'bold','&:hover': {
+      backgroundColor: 'rgba(8, 65, 92, 0.8)' // Adjust the color and opacity as needed
+    }}}>
               Posts
             </Button>
-            <Button onClick={Abouthandler} sx={{ color: "#CC2936", mx: 1 }}>
+            <Button onClick={Abouthandler} sx={{ color: "#F1BF98", mx: 1 , fontWeight: 'bold','&:hover': {
+      backgroundColor: 'rgba(8, 65, 92, 0.8)' // Adjust the color and opacity as needed
+    }}}>
               About
             </Button>
             <Button
               variant="outlined"
               onClick={loginhandler}
-              sx={{ color: "#CC2936" }}
+              sx={{ color: "#F1BF98" }}
             >
               Login
             </Button>

@@ -8,3 +8,16 @@ body {
   box-sizing: border-box;
 
 }
+@keyframes drive {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100vw);
+    opacity: 0;
+  }
+}
+
+.drive-animation {
+  animation: drive 1s ease forwards;
+}

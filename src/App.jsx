@@ -5,7 +5,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Home } from './pages/Home';
-import  Login  from './pages/Login';
+import  Login  from './pages/Auth/Login';
+
 import SendItem from './pages/SendItem';
 import Footer from './components/Footer';
 import { Signup } from './pages/Signup';

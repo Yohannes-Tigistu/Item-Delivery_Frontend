@@ -25,7 +25,7 @@ const drawerWidth = 250;
 
 function Navbar(props) {
   const navigate= useNavigate()
-  const {isAuthenticated }=  useContext(AuthContext);
+  const {isAuthenticated}=  useContext(AuthContext);
   const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
    
@@ -52,7 +52,8 @@ function Navbar(props) {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Typography variant="h6" sx={{ my: 2, ml: 5 }}>
-        <img src="" alt="logo" />
+        <img src={logonew} alt="logo" className="rounded-full w-16 h-16" />
+         Mela Express
       </Typography>
       <Divider />
       <List>
@@ -71,19 +72,19 @@ function Navbar(props) {
             <ListItemText primary={"About"} onClick={Abouthandler} />
           </ListItemButton>
         </ListItem>
-        {isAuthenticated ?(<ListItem disablePadding>
+        {isAuthenticated ? (
+          <ListItem disablePadding>
             <ListItemButton sx={{ textAlign: "center" }}>
               <ListItemText primary={"Profile"} onClick={profilehandler} />
             </ListItemButton>
           </ListItem>
-        )
-          : (<ListItem disablePadding>
+        ) : (
+          <ListItem disablePadding>
             <ListItemButton sx={{ textAlign: "center" }}>
               <ListItemText primary={"Login"} onClick={loginhandler} />
             </ListItemButton>
           </ListItem>
-        ) } 
-          
+        )}
       </List>
     </Box>
   );
@@ -92,39 +93,70 @@ function Navbar(props) {
     window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: "flex", marginBottom: "100px" }} >
-      <AppBar component="nav" color="default" style={{    backgroundColor: 'rgba(8, 65, 92, 0.8)', // Background color with transparency
-    backdropFilter: 'blur(10px)', // Apply blur effect
-    WebkitBackdropFilter: 'blur(10px)', // For older browsers
-}}>
+    <Box sx={{ display: "flex", marginBottom: "100px" }}>
+      <AppBar component="nav" color="default" className=" shadow-none ">
         <Toolbar>
           <Typography
             variant="h6"
             component="div"
             sx={{ flexGrow: 1, display: { sm: "block" } }}
           >
-            <img src={logonew} alt="logo" onClick={handleHome} style={{ width: "50px", height: "auto" }} />
+            <span className="flex flex-row items-center gap-4 font-serif text-xl font-semibold">
+              <img
+                src={logonew}
+                alt="logo"
+                onClick={handleHome}
+                style={{ width: "50px", height: "auto" }}
+                className="cursor-pointer font-sans"
+              />{" "}
+              Mela Express
+            </span>
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "none", md: "block" }, mx: 2 }}>
-           
-            <Button onClick={Postshandler} sx={{ color: "#F1BF98", mx: 1 , fontWeight: 'bold','&:hover': {
-      backgroundColor: 'rgba(8, 65, 92, 0.8)' // Adjust the color and opacity as needed
-    }}}>
+            <Button
+              onClick={handleHome}
+              sx={{
+                color: "#CC2936",
+                mx: 1,
+                fontWeight: "bold",
+              }}
+            >
+              {" "}
+              Home
+            </Button>
+            <Button
+              onClick={Postshandler}
+              sx={{
+                color: "#CC2936",
+                mx: 1,
+                fontWeight: "bold",
+              }}
+            >
               Posts
             </Button>
-            <Button onClick={Abouthandler} sx={{ color: "#F1BF98", mx: 1 , fontWeight: 'bold','&:hover': {
-      backgroundColor: 'rgba(8, 65, 92, 0.8)' // Adjust the color and opacity as needed
-    }}}>
+            <Button
+              onClick={Abouthandler}
+              sx={{
+                color: "#CC2936",
+                mx: 1,
+                fontWeight: "bold",
+              }}
+            >
               About
             </Button>
-            {isAuthenticated ? <Link to={"/pages/Profile"}><PersonIcon /></Link>:  <Button
-              variant="outlined"
-              onClick={loginhandler}
-              sx={{ color: "#CC2936" }}
-            >
-              Login
-            </Button>}
-      
+            {isAuthenticated ? (
+              <Link to={"/pages/Profile"}>
+                <PersonIcon />
+              </Link>
+            ) : (
+              <Button
+                variant="outlined"
+                onClick={loginhandler}
+                sx={{ color: "#CC2936" }}
+              >
+                Login
+              </Button>
+            )}
           </Box>{" "}
           <IconButton
             aria-label="open drawer"

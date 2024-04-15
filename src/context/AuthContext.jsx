@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
       : null
   );
   // console.log("authTokens", authTokens.access)
-   const [isAuthenticated, setIsAuthenticated] = useState(false);
+   const [isAuthenticated, setIsAuthenticated] = useState(null);
    useEffect(() => {
      setIsAuthenticated(authTokens !== null);
    }, [authTokens]);
@@ -25,7 +25,7 @@ export const AuthProvider = ({ children }) => {
       ? jwtDecode(localStorage.getItem("authTokens"))
       : null
   );
-  console.log("userauth", user)
+  
   const [myprofile, setProfile] = useState(null);
 
   const [loadingMyProfile, setLoadingMyProfile] = useState(true);
@@ -39,12 +39,13 @@ export const AuthProvider = ({ children }) => {
             headers: {
               Authorization: `Deliver ${token}`,
             },
-          });console.log(response)
-          if (response.ok) {
+          });
+          console.log( "myprofiee=",response)
+          if (response.status === 200) {
             
-            const data = await response.json();
+            const data = await response.data;
             setProfile(data);
-
+            console.log("profile", myprofile);
           } else {
             console.error("Failed to fetch profile data:", response.statusText);
           }
@@ -98,6 +99,7 @@ export const AuthProvider = ({ children }) => {
    }
  };
  
+   
      
 
   let forgotPassword = async (e) => {
@@ -181,7 +183,6 @@ async function getUserFromToken(token) {
             creator:  myprofile,
             fayda_number: socialnum,
             bank_account: account,
-            grand_father_name: grandname,
             profile:myprofile.id
           },
         },
@@ -201,15 +202,64 @@ async function getUserFromToken(token) {
 
     }
   }
-  //   },[authTokens]);
+  
+  const [services, setServices] = useState([]);
 
-  // //     async function profile (authTokens){
-  // //        const prof  = await axios.post(`${backendUrl}api/profiles/{${userData.id}}`,
-  // //             { header: {
-  // //                 Authorization: `Delivery ${authTokens}`
-  // //             },  body: {},
-  // //             }); console.log("profile:" + prof);
-  // // }
+  useEffect(() => {
+    const fetchservices= async () => {
+      try {
+        const token = authTokens.access;
+        const response = await axios.get(`${backendUrl}/api/services/`, {
+          headers: {
+            Authorization: `Deliver ${token}`,
+            "Content-Type": "application/json",
+          },
+    
+        });
+          const data = await response.json();
+          setServices(data);
+        if (data) {
+          console.log(data);
+        }
+      } catch (err) {
+        console.log(err.response);
+      }
+    };
+    fetchservices(), [];
+  });
+   
+  
+  
+
+    // useEffect(() => {
+    //   const createService = async () => {
+    //     try {
+    //       const token = authTokens.access;
+    //       const response = await axios.post(`${backendUrl}/api/services/`,{
+
+    //       } ,
+    //       {
+    //         headers: {
+    //           Authorization: `Deliver ${token}`,
+    //           "Content-Type": "application/json",
+    //         },
+    //       });
+    //       const data = await response.json();
+    //       setServices(data);
+    //       if (data) {
+    //         console.log(data);
+    //       }
+    //     } catch (err) {
+    //       console.log(err.response);
+    //     }
+    //   };
+    //   createService(), [];
+    // });
+
+  
+
+
+
   const value = {
     user: user,
     myprofile: myprofile,
@@ -217,10 +267,10 @@ async function getUserFromToken(token) {
     isAuthenticated: isAuthenticated,
     loading: loading,
     setIsAuthenticated: setIsAuthenticated,
-    logout: logout,
     loggingout: loggingout,
     setLogout: setLogout,
-   
+    services: services,
+    serviceProvider: serviceProvider,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

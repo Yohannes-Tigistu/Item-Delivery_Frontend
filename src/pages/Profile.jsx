@@ -4,12 +4,12 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import HomeIcon from "@mui/icons-material/Home";
 import PostAddIcon from "@mui/icons-material/PostAdd";
 import { styled } from "@mui/system";
 import { AuthContext } from "../context/AuthContext";
 import Button from "@mui/material/Button";
+import { PostForm } from "../components/PostForm";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -45,14 +45,14 @@ function a11yProps(index) {
 }
 
 export default function Profile() {
-  const { loggingout , myprofile } = useContext(AuthContext);
-  console.log(myprofile)
+  const { loggingout , myprofile } =  useContext(AuthContext);
+   console.log
   const [value, setValue] = useState(0);
 
   const handeLogout=()=>{
     const con =confirm("Are you sure you want to logout?");
     if(con){
-    loggingout()
+    loggingout() 
      }
   }
   const handleChange = (event, newValue) => {
@@ -71,29 +71,10 @@ export default function Profile() {
      borderRadius:"5px 5px 0 0"
    },
  }));
- function createData(name, calories, fat, carbs, protein) {
-   return { name, calories, fat, carbs, protein };
- }
- const rows = [
-   createData("1", 159, 6.0, 24, 4.0),
-   createData("2", 237, 9.0, 37, 4.3),
-   createData("3", 262, 16.0, 24, 6.0),
-   createData("4", 305, 3.7, 67, 4.3),
-   createData("5", 356, 16.0, 49, 3.9),
-   createData("6", 159, 6.0, 24, 4.0),
-   createData("7", 237, 9.0, 37, 4.3),
-   createData("8", 262, 16.0, 24, 6.0),
-   createData("9", 305, 3.7, 67, 4.3),
-   createData("10", 356, 16.0, 49, 3.9),
- ];
-
- function sum(column) {
-   return rows.reduce((acc, row) => acc + row[column], 0);
- }
 
 
   return (
-    <div className=" w-screen h-screen flex  justify-center align-middle ">
+    <div className=" w-screen  flex  justify-center">
       <Box sx={{ width: "100%" }}>
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
           <StyledTabs value={value} onChange={handleChange} centered>
@@ -103,16 +84,12 @@ export default function Profile() {
               {...a11yProps(0)}
             />
             <StyledTab icon={<PostAddIcon />} label="Posts" {...a11yProps(1)} />
-            <StyledTab
-              icon={<ShoppingCartIcon />}
-              label="Order"
-              {...a11yProps(2)}
-            />
+        
           </StyledTabs>
         </Box>
         <CustomTabPanel value={value} index={0}>
           <Box
-            className="sm:w-5/6 md:w-5/6 mt-14  "
+            className="sm:w-5/6 md:w-5/6 mt-14  mb-20 "
             sx={{
               height: "auto",
               py: 16,
@@ -143,7 +120,7 @@ export default function Profile() {
               <Box
                 className=" sm:w-full md:w-11/12 lg:w-full  flex justify-center items-center  max"
               >
-                <form className=" w-full ">
+                <form className=" w-10/12  ">
                   <div class="relative z-0 w-full mb-5 group">
                     <input
                       type="email"
@@ -268,21 +245,11 @@ export default function Profile() {
               marginX: "auto",
               borderRadius: "15px",
             }}
-          ></Box>
+          >
+            <PostForm/>
+          </Box>
         </CustomTabPanel>
-        <CustomTabPanel value={value} index={2}>
-          <Box
-            className="sm:w-5/6 md:w-5/6  mt-14 "
-            sx={{
-              height: "80vh",
-              p: 20,
-              backgroundColor: "rgba(8, 65, 92, 0.15)",
-              marginX: "auto",
-              borderRadius: "15px",
-              marginBottom: "40px",
-            }}
-          ></Box>
-        </CustomTabPanel>
+        
 
         <Box className="w-full px-32  h-10 ">
         <Button className="w-full  md:w-2/12  sm:w-full xs:w-full lg:w-1/12 xl:1/12  " variant="contained" onClick={handeLogout} color="primary" sx={{backgroundColor:"#cc2936"}}>

@@ -10,7 +10,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { useContext } from "react";
-
+import {Link} from "react-router-dom";
 
 
 
@@ -19,6 +19,9 @@ const Posts = () => {
 const { user,services } = useContext(AuthContext);
 const [posts, setPosts] = useState([]);
 const navigate = useNavigate();
+ 
+
+
 //  setPosts(services);
    
     
@@ -78,36 +81,43 @@ const navigate = useNavigate();
   return (
     <Container className="sm:w-auto">
       <div className="mt-28 text-[#bc2525]">
-        
         <div className="flex space-x-8 space-y-8">
-        <Typography variant="h3" sx={{}}>
-          Today's Posts
-        </Typography>
+          <Typography variant="h3" sx={{}}>
+            Today's Posts
+          </Typography>
           <Search />
           <LocationSelector />
         </div>
       </div>
       <div className="w-65% h-0.5 bg-[#08415C]"></div>
-     
-        <Grid container sx={{ mt: 2, width: "100%"}}>
-        <Grid item sm={12} md={4}>
-          <PostCard />
-        </Grid>
-        <Grid item sm={12} md={4}>
-          <PostCard />
-        </Grid>
-        <Grid item sm={12} md={4}>
-          <PostCard />
-        </Grid>
-        <Grid item sm={12} md={4}>
-          <PostCard />
-        </Grid>
-        <Grid item sm={12} md={4}>
-          <PostCard />
-        </Grid>
-        </Grid>
 
-
+      <Grid container sx={{ mt: 2, width: "100%" }}>
+        <Grid item sm={12} md={4}>
+          <Link to="../pages/Details">
+            <PostCard />
+          </Link>
+        </Grid>
+        <Grid item sm={12} md={4}>
+          <Link to="../pages/Details">
+            <PostCard />
+          </Link>
+        </Grid>
+        <Grid item sm={12} md={4}>
+          <Link to="../pages/Details">
+            <PostCard />
+          </Link>
+        </Grid>
+        <Grid item sm={12} md={4}>
+          <Link to="../pages/Details">
+            <PostCard />
+          </Link>
+        </Grid>
+        <Grid item sm={12} md={4}>
+          <Link to="../pages/Details">
+            <PostCard />
+          </Link>
+        </Grid>
+      </Grid>
     </Container>
   );
 };

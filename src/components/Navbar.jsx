@@ -17,7 +17,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import PersonIcon from "@mui/icons-material/Person";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext";
+import {AuthContext } from "../context/AuthContext";
 import logonew from '../components/images/logonew.png'
 const drawerWidth = 250;
 

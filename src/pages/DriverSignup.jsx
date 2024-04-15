@@ -1,6 +1,6 @@
-import React from 'react';
+import React , {useState , useContext} from 'react';
 import { useForm } from 'react-hook-form';
-
+import { AuthContext } from '../context/AuthContext'
 const DriverSignup = () => {
   const { register, handleSubmit, formState: { errors }, watch } = useForm();
   const data = watch(); // Watch all inputs to check for password match
@@ -16,6 +16,8 @@ const DriverSignup = () => {
      window.location.href = '/pages/home'; 
   };
 
+  const {serviceProvider} = useContext(AuthContext);
+  
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="px-8 py-8 bg-white rounded-lg shadow-md max-w-xl w-full">

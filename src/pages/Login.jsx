@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
-
+import React, { useState, useContext } from 'react';
+import { Link } from 'react-router-dom'
+import { AuthContext } from '../context/AuthContext';
+ 
 const Login = () => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
     rememberMe: false
   });
-
+const {loginUser , user ,error , setError} = useContext(AuthContext);
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     const newValue = type === 'checkbox' ? checked : value;
@@ -19,6 +21,14 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
+    try{
+    const res =  loginUser(formData.email, formData.password);
+    if(res){console.log("user",user)}
+    }catch(error){
+      console.log("login",error);
+      setError(error)
+    }
+    
   };
 
   return (
@@ -28,15 +38,16 @@ const Login = () => {
         <p className="mb-4 text-center">Please sign in to continue</p>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label htmlFor="email" className="block text-left mb-1">Email</label>
+            <label htmlFor="email" className="block text-left mb-1">Username</label>
             <input
-              type="email"
+              type="text"
               id="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
               className="w-full px-4 py-2 bg-white border border-gray-300 rounded shadow-sm focus:outline-none focus:border-green-400"
               required
+              helpertext={error}
             />
           </div>
           <div className="mb-4">
@@ -49,6 +60,7 @@ const Login = () => {
               onChange={handleChange}
               className="w-full px-4 py-2 bg-white border border-gray-300 rounded shadow-sm focus:outline-none focus:border-green-400"
               required
+              helpertext={error}
             />
           </div>
           <div className="mb-4 flex items-center">
@@ -67,7 +79,7 @@ const Login = () => {
           </button>
         </form>
         <div className="mt-4">
-          <p className="mb-2 text-center">Don't have an account? <a href="/signup" className="text-black hover:underline">Sign Up</a></p>
+          <p className="mb-2 text-center">Don't have an account? <Link to="../pages/SignUp" className="text-black hover:underline">Sign Up</Link></p>
           <p className="mb-2 text-center">OR</p>
           <button className="w-full bg-white border border-gray-300 text-black px-4 py-2 rounded-md shadow-md flex items-center justify-center  hover:bg-gray-300">
             Continue with Google 
@@ -77,5 +89,4 @@ const Login = () => {
     </div>
   );
 };
-
 export default Login;

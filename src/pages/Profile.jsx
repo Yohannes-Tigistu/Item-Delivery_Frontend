@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import PropTypes from "prop-types";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
@@ -8,13 +8,12 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import HomeIcon from "@mui/icons-material/Home";
 import PostAddIcon from "@mui/icons-material/PostAdd";
 import { styled } from "@mui/system";
-import Input from "@mui/joy/Input";
-import Button from "@mui/joy/Button";
-import Table from "@mui/joy/Table";
-import Sheet from "@mui/joy/Sheet";
+import { AuthContext } from "../context/AuthContext";
+import Button from "@mui/material/Button";
+
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
-
+  
   return (
     <div
       role="tabpanel"
@@ -46,8 +45,16 @@ function a11yProps(index) {
 }
 
 export default function Profile() {
+  const { loggingout , myprofile } = useContext(AuthContext);
+  console.log(myprofile)
   const [value, setValue] = useState(0);
 
+  const handeLogout=()=>{
+    const con =confirm("Are you sure you want to logout?");
+    if(con){
+    loggingout()
+     }
+  }
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -57,7 +64,7 @@ export default function Profile() {
    },
  });
 
- const StyledTab = styled(Tab)(({ theme }) => ({
+ const StyledTab = styled(Tab)(({ }) => ({
    "&.Mui-selected": {
      backgroundColor: "#f5f5f5",
      color: "#08415C",
@@ -105,14 +112,13 @@ export default function Profile() {
         </Box>
         <CustomTabPanel value={value} index={0}>
           <Box
-            className="sm:w-5/6 md:w-5/6 mt-14  mb-14"
+            className="sm:w-5/6 md:w-5/6 mt-14  "
             sx={{
               height: "auto",
               py: 16,
               backgroundColor: "rgba(8, 65, 92, 0.15)",
               marginX: "auto",
               borderRadius: "15px",
-              marginBottom: "40px",
             }}
           >
             <Box className=" w-full  pl-20">
@@ -277,6 +283,12 @@ export default function Profile() {
             }}
           ></Box>
         </CustomTabPanel>
+
+        <Box className="w-full px-32  h-10 ">
+        <Button className="w-full  md:w-2/12  sm:w-full xs:w-full lg:w-1/12 xl:1/12  " variant="contained" onClick={handeLogout} color="primary" sx={{backgroundColor:"#cc2936"}}>
+          Logout
+        </Button>
+        </Box>
       </Box>
     </div>
   );

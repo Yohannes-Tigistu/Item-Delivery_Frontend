@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useContext , useState} from "react";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import AppBar from "@mui/material/AppBar";
@@ -17,15 +17,17 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import PersonIcon from "@mui/icons-material/Person";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 import logonew from '../components/images/logonew.png'
 const drawerWidth = 250;
-const navItems = ["Home", "Posts", "About", "Contact" ];
+
 
 
 function Navbar(props) {
   const navigate= useNavigate()
+  const {isAuthenticated }=  useContext(AuthContext);
   const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
    
   const loginhandler=()=>{
     navigate("pages/Login")
@@ -40,6 +42,9 @@ function Navbar(props) {
   const Postshandler = () => {
     navigate("pages/Posts");
   };
+  const profilehandler = () => {
+    navigate("pages/Profile");
+  };
   
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -47,7 +52,7 @@ function Navbar(props) {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Typography variant="h6" sx={{ my: 2, ml: 5 }}>
-       <img src="" alt="logo" />
+        <img src="" alt="logo" />
       </Typography>
       <Divider />
       <List>
@@ -66,12 +71,19 @@ function Navbar(props) {
             <ListItemText primary={"About"} onClick={Abouthandler} />
           </ListItemButton>
         </ListItem>
-        <ListItem disablePadding>
-          <ListItemButton sx={{ textAlign: "center" }}>
+        {isAuthenticated ?(<ListItem disablePadding>
+            <ListItemButton sx={{ textAlign: "center" }}>
+              <ListItemText primary={"Profile"} onClick={profilehandler} />
+            </ListItemButton>
+          </ListItem>
+        )
+          : (<ListItem disablePadding>
+            <ListItemButton sx={{ textAlign: "center" }}>
+              <ListItemText primary={"Login"} onClick={loginhandler} />
+            </ListItemButton>
+          </ListItem>
+        ) } 
           
-            <ListItemText primary={"Login"} onClick={loginhandler} />
-          </ListItemButton>
-        </ListItem>
       </List>
     </Box>
   );
@@ -105,16 +117,14 @@ function Navbar(props) {
     }}}>
               About
             </Button>
-            <Button
+            {isAuthenticated ? <Link to={"/pages/Profile"}><PersonIcon /></Link>:  <Button
               variant="outlined"
               onClick={loginhandler}
-              sx={{ color: "#F1BF98" }}
+              sx={{ color: "#CC2936" }}
             >
               Login
-            </Button>
-            <Link to={"/pages/Profile"}>
-              <PersonIcon />
-            </Link>
+            </Button>}
+      
           </Box>{" "}
           <IconButton
             aria-label="open drawer"
@@ -149,6 +159,4 @@ function Navbar(props) {
     </Box>
   );
 }
-
-
 export default Navbar;

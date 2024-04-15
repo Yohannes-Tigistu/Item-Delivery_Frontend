@@ -16,6 +16,8 @@ import Drive from './pages/Drive'
 import OrderForm from './pages/OrderForm';
 import DriverSignup from './pages/DriverSignup';
 import Posts from './pages/Posts';
+import  Payment  from './pages/Payment';
+// import ProfileSetupPage from './pages/ProfileSetupPage';
 function App() {
   const theme = createTheme({
     palette: {
@@ -34,15 +36,17 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/pages/Home" element={<Home />} />
           <Route path="/pages/Login" element={<Login />} />
-          <Route path="/pages/SignUp" element={<Signup/>} />
-          <Route path="/pages/Posts" element={<Posts/>} />
+          <Route path="/pages/SignUp" element={<Signup />} />
+          <Route path="/pages/Posts" element={<Posts />} />
           <Route path="/pages/About" element={<About />} />
           <Route path="/pages/Profile" element={<Profile />} />
           <Route path="/pages/Details" element={<Details />} />
           <Route path="/pages/OrderForm" element={<OrderForm />} />
           <Route path="/pages/Drive" element={<Drive />} />
           <Route path="/pages/DriverSignup" element={<DriverSignup />} />
-          <Route path="/pages/OrderForm" element={<OrderForm/>}/>
+          <Route path="/pages/OrderForm" element={<OrderForm />} />
+          <Route path="/pages/Payment" element={<Payment />} />
+          {/* <Route path="/pages/ProfileSetupPage" element={<ProfileSetupPage/>} /> */}
         </Routes>
         <Footer />
       </AuthProvider>
